@@ -1,0 +1,26 @@
+.list {
+  position: relative;
+}
+
+.listitem {
+  position: absolute;
+  max-width: 6rem;
+  padding: 2rem;
+  list-style: none;
+  border: 1px solid grey;
+
+  &[data-index='1'] {
+    background-color: azure;
+    transform: translate(1rem, 1rem);
+  }
+
+  &[data-index='2'] {
+    background-color: bisque;
+    transform: translate(2rem, 2rem);
+  }
+
+  &[data-index='3'] {
+    background-color: cadetblue;
+    translate: 3rem 3rem;
+  }
+}
