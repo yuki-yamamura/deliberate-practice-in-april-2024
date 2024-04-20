@@ -1,20 +1,31 @@
+'use client';
+
+import Box from './Box';
+import { useState } from 'react';
+
 import styles from './index.module.scss';
 
-type Props = {
-  quantity: 1 | 2 | 3;
-};
-
-const Boxes = ({ quantity }: Props) => {
+const Boxes = () => {
+  const [quantity, setQuantity] = useState(1);
   const indexes = Array.from(new Array(quantity), (_, index) => index + 1);
 
+  const handleButtonClick = () => setQuantity((prev) => prev + 1);
+
   return (
-    <ul className={styles.list}>
-      {indexes.map((index) => (
-        <li key={index} data-index={index} className={styles.listitem}>
-          {index}
-        </li>
-      ))}
-    </ul>
+    <div>
+      <button
+        type="button"
+        onClick={handleButtonClick}
+        className={styles.button}
+      >
+        Add new box
+      </button>
+      <ul className={styles.list}>
+        {indexes.map((index) => (
+          <Box index={index} key={index} />
+        ))}
+      </ul>
+    </div>
   );
 };
 
